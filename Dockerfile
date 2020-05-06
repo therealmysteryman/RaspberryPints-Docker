@@ -15,5 +15,5 @@ RUN cd /var/www && \
 
 VOLUME /var/www/Pints/data
 
-RUN chmod +x /etc/my_init.d/*
-RUN find /etc/service -name run -exec chmod +x {} \;
+#RUN chmod +x /etc/my_init.d/*
+#RUN find /etc/service -name run -exec chmod +x {} \;
