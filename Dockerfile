@@ -5,7 +5,8 @@ EXPOSE 80
 
 # Update apt, install dependencies and cleanup.
 RUN apt-get update && \
-    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php locales mysql-client mysql-server && \ 
+    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring && \ 
+                        libapache2-mod-php mariadb-server mysql-client mysql-server locales nano && \ 
     apt-get clean
 
 # Set Localisation
