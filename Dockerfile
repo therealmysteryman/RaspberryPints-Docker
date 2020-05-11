@@ -25,5 +25,5 @@ VOLUME /var/www/Pints/data
 
 COPY etc/ /etc/
 
-RUN chmod +x /etc/my_init.d/*
-RUN find /etc/service -name run -exec chmod +x {} \;
+#RUN chmod +x /etc/my_init.d/*
+#RUN find /etc/service -name run -exec chmod +x {} \;
