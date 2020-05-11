@@ -3,11 +3,9 @@ MAINTAINER Automation Geek
 
 EXPOSE 80
 
-# Add php repository
-RUN add-apt-repository ppa:ondrej/php
-
 # Update apt, install dependencies and cleanup.
-RUN apt-get update && \
+RUN add-apt-repository ppa:ondrej/php -y && \
+    apt-get update && \
     apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php mariadb-server locales nano && \ 
     apt-get clean
 
