@@ -3,15 +3,18 @@ MAINTAINER Automation Geek
 
 EXPOSE 80
 
-# Set Local Env
-RUN locale-gen en_US.UTF-8
-RUN LC_ALL=en_US.UTF-
-
 # Update apt, install dependencies and cleanup.
 RUN apt-get update && \
-    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php && \ 
+    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php locales mysql-client mysql-server && \ 
     apt-get clean
-     
+
+# Set Localisation
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+ENV LANG en_US.UTF-8 
+
 # Fetch Raspberry Pints from rtlindne
 RUN cd /var/www && \
     git clone https://github.com/rtlindne/RaspberryPints.git -b master Pints && \
