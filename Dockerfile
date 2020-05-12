@@ -6,7 +6,7 @@ EXPOSE 80
 # Update apt, install dependencies and cleanup.
 #RUN add-apt-repository ppa:ondrej/php -y && \
 RUN apt-get update && \
-    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php locales nano && \ 
+    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php locales && \ 
     apt-get clean
 
 # Set Localisation
@@ -21,7 +21,7 @@ RUN cd /var/www && \
     git clone https://github.com/rtlindne/RaspberryPints.git -b master Pints && \
     chown -R www-data:www-data /var/www/Pints
 
-VOLUME /var/www/Pints/data
+VOLUME /var/www/Pints/includes/config.php
 
 COPY etc/ /etc/
 
