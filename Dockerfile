@@ -21,8 +21,6 @@ RUN cd /var/www && \
     git clone https://github.com/rtlindne/RaspberryPints.git -b master Pints && \
     chown -R www-data:www-data /var/www/Pints
 
-VOLUME /var/www/Pints/includes/config.php
-
 COPY etc/ /etc/
 
 CMD /etc/init.d/apache2 start && \ 
