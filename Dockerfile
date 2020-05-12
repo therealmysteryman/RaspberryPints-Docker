@@ -25,7 +25,6 @@ VOLUME /var/www/Pints/data
 
 COPY etc/ /etc/
 
-#RUN chmod +x /etc/my_init.d/*
-#RUN find /etc/service -name run -exec chmod +x {} \;
-
-CMD tail -f /dev/null
+CMD /etc/init.d/apache2 start && \ 
+    /etc/init.d/mysql start && \
+    tail -f /dev/null
