@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 MAINTAINER AutomationGeek
 
 EXPOSE 80
