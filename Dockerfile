@@ -6,7 +6,7 @@ EXPOSE 80
 # Update apt, install dependencies and cleanup.
 #RUN add-apt-repository ppa:ondrej/php -y && \
 RUN apt-get update && \
-    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php mysql-client locales && \ 
+    apt-get install -qy git wget unzip apache2 php php-mysql php-mbstring libapache2-mod-php default-mysql-client locales && \ 
     apt-get clean
 
 # Set Localisation
